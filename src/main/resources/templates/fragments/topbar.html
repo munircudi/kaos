@@ -1,0 +1,108 @@
+<div th:fragment="navbar" class="container-fluid">
+
+
+
+    <div class="row align-items-center py-2 px-lg-5" style="background-color: rgb(248,248,248)">
+        <div class="col-lg-4 d-flex align-items-center">
+            <!-- Logo -->
+            <a href="/anasayfa" class="navbar-brand p-0">
+                <img src="/img/img_3.png" alt="Logo" class="ml-2" style="height: 100px;width: 100px">
+            </a>
+            <span class="d-lg-block d-none" style="font-size: 16px;font-family: Georgia; background: linear-gradient(to right, #9C2506, #090909); -webkit-background-clip: text; color: transparent;  font-weight: bold; white-space: nowrap;">
+            Komünalist tahayyül için proaktif müdahale!
+        </span>
+            <span class="d-lg-none" style="font-size: 9px; background: linear-gradient(to right, #9C2506, #090909); -webkit-background-clip: text; color: transparent; font-weight: bold; white-space: nowrap;">
+            Komünalist tahayyül için proaktif müdahale!
+        </span>
+        </div>
+        <div class="col-lg-8 mt-2 mt-lg-0">
+            <!-- Web için dar arama çubuğu -->
+            <div class="d-none d-lg-block" style="max-width: 240px; float: right;"> <!-- Sağa kaydır -->
+                <form th:action="@{/search}" method="get">
+                    <div class="input-group">
+                        <input type="text" name="query" class="form-control border-0 rounded-0 shadow-none" placeholder="Ara">
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text" style="background-color: #FFFFFF; border: none; outline: none; box-shadow: none; pointer-events: auto;">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Mobil için tam genişlik arama çubuğu -->
+            <div class="d-lg-none" style="width: 100%;">
+                <form th:action="@{/search}" method="get">
+                    <div class="input-group">
+                        <input type="text" name="query" class="form-control border-0 rounded-0 shadow-none" placeholder="Ara">
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text" style="background-color: #FFFFFF; border: none; outline: none; box-shadow: none; pointer-events: auto;">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark py-1 py-lg-0 px-0" style="background-color: #ab474a; border:none #ffffff;">
+            <a href="index.html" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-4 text-uppercase text-primary"><span class="text-white font-weight-normal"></span></h1>
+            </a>
+            <button style="border: none" type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span  class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="/anasayfa" class="nav-item nav-link " style="font-size: 12px;">Anasayfa</a>
+                    <a href="/yazarlar" class="nav-item nav-link" style="font-size: 12px;">Yazarlar</a>
+                    <a href="/ceviri" class="nav-item nav-link" style="font-size: 12px;">ÇEVİRİ</a>
+
+                    <a href="/duyurular" class="nav-item nav-link" style="font-size: 12px;">DUYURULAR</a>
+                    <a href="/contact" class="nav-item nav-link" style="font-size: 12px;">İLETİŞİM</a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <style>
+        /* Sarı renkli hover efektini kaldırma */
+        .navbar-nav .nav-item.nav-link:hover {
+            color: inherit; /* veya istediğiniz rengi belirleyebilirsiniz */
+            background-color: transparent; /* veya istediğiniz arkaplan rengini belirleyebilirsiniz */
+            text-decoration: none; /* İstenirse alt çizgiyi kaldırma */
+        }
+
+        .navbar.navbar-expand-lg.navbar-dark.show {
+            border: none;
+        }
+
+        .input-group-text {
+            border: none;
+            background-color: #ffffff0f;
+            pointer-events: auto;
+        }
+
+        .navbar-toggler:focus {
+            border: none; /* Odak rengini kaldır */
+        }
+
+
+
+    </style>
+
+    <script>
+
+        document.querySelector('.navbar-toggler').addEventListener('click', function(event) {
+            event.preventDefault(); // Tıklamayı engelle
+            this.blur(); // Butonun odaklanmasını kaldır
+        });
+
+    </script>
+</div>
+

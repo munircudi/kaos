@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Diğer gerekli başlık etiketleri -->
+</head>
+<body>
+<h1 th:text="${announcement.title}"></h1>
+<p th:text="${announcement.content}"></p>
+<a th:href="@{/editAnnouncementForm/{id}(id=${announcement.id})}">Düzenle</a>
+<a th:href="@{/deleteAnnouncement/{id}(id=${announcement.id})}" onclick="return confirm('Duyuruyu silmek istediğinize emin misiniz?')">Sil</a>
+</body>
+</html>
+
+
+
+
+

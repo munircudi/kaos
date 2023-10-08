@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="table-author-data-changelog-v1.0.xml" author="huseyin-balicak">
+
+        <insert tableName="author">
+            <column name="name" value="Xuthor 1"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Author 2"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Author 3"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Zuthor 4"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Author 5"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Buthor 6"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Cuthor 6"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Cuthor 6"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Duthor 6"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Euthor 6"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+        <insert tableName="author">
+            <column name="name" value="Euthor 6"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+        <insert tableName="author">
+            <column name="name" value="Huthor 6"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+        <insert tableName="author">
+            <column name="name" value="Guthor 6"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+        <insert tableName="author">
+            <column name="name" value="Futhor 6"/>
+            <column name="author_image" value="https://example.com/image1.jpg"/>
+
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>

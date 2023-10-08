@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kaos Aralığı</title>  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Ücretsiz Haber Sitesi Şablonu" name="description">
+
+  <!-- Favicon -->
+  <link href="/img/rrizom.jpg" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="/css/style.css" rel="stylesheet">
+
+  <style>
+    /* Metinlerin altını çizmekten kaçınmak için altçizgiyi kaldırın */
+    .list-group-item a:hover {
+      text-decoration: none;
+    }
+
+
+    .container.mt-5 {
+      margin-bottom: 280px; /* İhtiyaca göre ayarlayabilirsiniz */
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar Start -->
+<div th:replace="~{fragments/topbar::navbar}"></div>
+<!-- Navbar End -->
+
+<!-- Search Results Start -->
+<div  class="container mt-5">
+  <h2 style="font-family: 'Roboto Slab',sans-serif;font-size:19px;line-height:30px  " th:text="'Arama Sonuçları: ' + ${query}" class="mb-3">Arama Sonuçları</h2>
+  <ul class="list-group">
+    <li style="background-color:#EFEFEF;border: none " th:each="result : ${searchResults}" class="list-group-item">
+      <a th:href="@{'/news/' + ${result.id}}" class="text-primary">
+        <div class="row">
+          <div class="col-md-3">
+
+            <img style="object-fit: cover;border-radius:5px;box-shadow: none "  th:src="${'data:image/jpeg;base64,' + result.imageUrl}"  class="img-fluid">
+          </div>
+          <div class="col-md-9">
+            <h3  style="background-color: #EFEFEF; font-family: 'Roboto Slab',sans-serif;font-size:22px;line-height:33px;" th:text="${result.title}" class="mb-1"></h3>
+            <p style="background-color: #EFEFEF; font-family: 'Roboto Slab',sans-serif; font-size: 18px; line-height: 27px;" th:text="${result.category.name + '/' + result.author.name}" class="mb-0 text-muted"></p>
+
+          </div>
+        </div>
+      </a>
+    </li>
+    <li  style="background-color: #EFEFEF; font-family: 'Roboto Slab',sans-serif;font-size:19px;line-height:30px;border: none  " th:if="${searchResults.isEmpty()}" class="list-group-item">
+      Arama sonucu bulunamadı
+    </li>
+  </ul>
+</div>
+<!-- Search Results End -->
+
+
+<!-- Footer Start -->
+<div th:insert="~{fragments/footer::footer}"></div>
+<!-- Footer End -->
+
+<!-- Back to Top -->
+<a style="background-color: #0d0d0f; color: #f0f0f0; box-shadow: none; border: none; border-radius: 0px;" href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+</body>
+
+</html>

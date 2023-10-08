@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Diğer gerekli başlık etiketleri -->
+</head>
+<body>
+<h1>Duyuru Düzenle</h1>
+<form th:action="@{/editAnnouncement/{id}(id=${announcement.id})}" method="post">
+  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+  <input type="text" th:name="title" th:value="${announcement.title}" placeholder="Başlık"/>
+  <textarea th:name="content" rows="4" cols="50" placeholder="İçerik" th:text="${announcement.content}"></textarea>
+  <button type="submit">Duyuru Güncelle</button>
+</form>
+</body>
+</html>

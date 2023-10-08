@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Add your head content here -->
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<!-- Admin Upload Image Start -->
+<div class="container mt-5">
+  <h2>Upload Image</h2>
+  <form th:action="@{/admin/save-image}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="imageSource">Select Image Source:</label>
+      <select class="form-control" id="imageSource" name="imageSource" onchange="toggleInputType(event)">
+        <option value="file">Select from File</option>
+        <option value="paste">Paste from Clipboard</option>
+      </select>
+    </div>
+    <div class="form-group" id="fileInputSection">
+      <label for="file">Choose Image File:</label>
+      <input type="file" class="form-control-file" id="file" name="file" required>
+      <label id="fileLabel" class="file-label">No file chosen</label>
+    </div>
+    <div class="form-group" id="pasteInputSection" style="display: none;">
+      <label for="imagePaste">Paste an Image:</label>
+      <textarea class="form-control" id="imagePaste" name="imagePaste" rows="3" placeholder="Paste an image here"></textarea>
+      <label id="pasteLabel" class="file-label">No image pasted</label>
+    </div>
+    <div class="form-group">
+      <img id="imagePreview" src="#" alt="Preview" style="max-width: 300px; display: none;">
+    </div>
+    <div class="form-group">
+      <label for="fileName">File Name:</label>
+      <input type="text" class="form-control" id="fileName" name="fileName" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload Image</button>
+  </form>
+</div>
+<!-- Admin Upload Image End -->
+<script>
+  function toggleInputType(event) {
+    const imageSource = event.target.value;
+    const fileInputSection = document.getElementById('fileInputSection');
+    const pasteInputSection = document.getElementById('pasteInputSection');
+
+    if (imageSource === 'file') {
+      fileInputSection.style.display = 'block';
+      pasteInputSection.style.display = 'none';
+      resetImagePreview();
+    } else if (imageSource === 'paste') {
+      fileInputSection.style.display = 'none';
+      pasteInputSection.style.display = 'block';
+    }
+  }
+
+  function handleImagePaste(event) {
+    const imagePaste = event.target;
+    const pasteLabel = document.getElementById('pasteLabel');
+    const imagePreview = document.getElementById('imagePreview');
+
+    const items = event.clipboardData.items;
+    for (const item of items) {
+      if (item.type.indexOf('image') !== -1) {
+        const file = item.getAsFile();
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          imagePreview.src = e.target.result;
+          imagePreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+        pasteLabel.textContent = 'Image pasted';
+        break;
+      }
+    }
+  }
+
+  function resetImagePreview() {
+    const imagePreview = document.getElementById('imagePreview');
+    const pasteLabel = document.getElementById('pasteLabel');
+    imagePreview.style.display = 'none';
+    imagePreview.src = '#';
+    pasteLabel.textContent = 'No image pasted';
+  }
+
+  const imageSource = document.getElementById('imageSource');
+  imageSource.addEventListener('change', toggleInputType);
+  const imagePaste = document.getElementById('imagePaste');
+  imagePaste.addEventListener('paste', handleImagePaste);
+  imagePaste.addEventListener('input', resetImagePreview);
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enhanced HTML Text Editor</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .editor {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .editor-content {
+      min-height: 200px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-4">
+  <div class="editor">
+    <h2>Enhanced HTML Text Editor</h2>
+    <div class="btn-group">
+      <button class="btn btn-secondary" id="boldBtn"><b>B</b></button>
+      <button class="btn btn-secondary" id="italicBtn"><i>I</i></button>
+      <button class="btn btn-secondary" id="underlineBtn"><u>U</u></button>
+      <button class="btn btn-secondary" id="linkBtn">Link</button>
+      <button class="btn btn-secondary" id="clearBtn">Clear</button>
+    </div>
+    <br>
+    <div class="btn-group mt-2">
+      <button class="btn btn-secondary" id="textColorBtn">Text Color</button>
+      <button class="btn btn-secondary" id="bgColorBtn">Background Color</button>
+      <button class="btn btn-secondary" id="alignLeftBtn">Align Left</button>
+      <button class="btn btn-secondary" id="alignCenterBtn">Align Center</button>
+      <button class="btn btn-secondary" id="alignRightBtn">Align Right</button>
+      <button class="btn btn-secondary" id="insertImageBtn">Insert Image</button>
+    </div>
+    <br>
+    <div class="editor-content mt-3" contenteditable="true" id="editorContent">
+      <!-- Metin içeriği burada düzenlenecek -->
+    </div>
+  </div>
+</div>
+
+<script>
+  const editorContent = document.getElementById('editorContent');
+  const boldBtn = document.getElementById('boldBtn');
+  const italicBtn = document.getElementById('italicBtn');
+  const underlineBtn = document.getElementById('underlineBtn');
+  const linkBtn = document.getElementById('linkBtn');
+  const textColorBtn = document.getElementById('textColorBtn');
+  const bgColorBtn = document.getElementById('bgColorBtn');
+  const alignLeftBtn = document.getElementById('alignLeftBtn');
+  const alignCenterBtn = document.getElementById('alignCenterBtn');
+  const alignRightBtn = document.getElementById('alignRightBtn');
+  const insertImageBtn = document.getElementById('insertImageBtn');
+  const clearBtn = document.getElementById('clearBtn');
+
+  boldBtn.addEventListener('click', () => {
+    document.execCommand('bold', false, null);
+  });
+
+  italicBtn.addEventListener('click', () => {
+    document.execCommand('italic', false, null);
+  });
+
+  underlineBtn.addEventListener('click', () => {
+    document.execCommand('underline', false, null);
+  });
+
+  linkBtn.addEventListener('click', () => {
+    const url = prompt('Enter a URL:');
+    if (url) {
+      document.execCommand('createLink', false, url);
+    }
+  });
+
+  textColorBtn.addEventListener('click', () => {
+    const color = prompt('Enter a text color:');
+    if (color) {
+      document.execCommand('foreColor', false, color);
+    }
+  });
+
+  bgColorBtn.addEventListener('click', () => {
+    const bgColor = prompt('Enter a background color:');
+    if (bgColor) {
+      document.execCommand('hiliteColor', false, bgColor);
+    }
+  });
+
+  alignLeftBtn.addEventListener('click', () => {
+    document.execCommand('justifyLeft', false, null);
+  });
+
+  alignCenterBtn.addEventListener('click', () => {
+    document.execCommand('justifyCenter', false, null);
+  });
+
+  alignRightBtn.addEventListener('click', () => {
+    document.execCommand('justifyRight', false, null);
+  });
+
+  insertImageBtn.addEventListener('click', () => {
+    const imageUrl = prompt('Enter the image URL:');
+    if (imageUrl) {
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      document.execCommand('insertHTML', false, img.outerHTML);
+    }
+  });
+
+  clearBtn.addEventListener('click', () => {
+    editorContent.innerHTML = '';
+  });
+</script>
+</body>
+</html>
+

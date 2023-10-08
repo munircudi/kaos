@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="table-bioscontact-data-changelog-v1.0.xml" author="huseyin-balicak">
+        <insert tableName="bios_ethos_contact">
+            <column name="about" value="About about about"/>
+            <column name="bios_ethos_email" value="rizom@protonmail.com"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

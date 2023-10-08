@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kaos Aralığı</title>    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="/img/img_1.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <style>
+
+        .owl-prev:hover {
+            background-color: black;
+        }
+
+    </style>
+
+
+
+</head>
+
+<body>
+
+<!--navbar start-->
+<div th:replace="~{fragments/topbar::navbar}"></div>
+<!-- Navbar End -->
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-lg-7 px-0">
+            <div class="owl-carousel main-carousel position-relative">
+                <div th:each="news, iterStat : ${newsList}" class="position-relative overflow-hidden" style="height: 500px;"
+                     th:if="${iterStat.index} >= ${newsList.size() - 4}">
+                    <a th:href="@{/news/{id}(id=${news.id})}">
+                        <img class="img-fluid h-100" th:src="@{'/img/' + ${news.imageUrl}}" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <span class="badge badge-primary  font-weight-semi-bold p-2 mr-2"
+                                      th:text="${news.getCategory().getName()}"
+                                      style="background-color: #ab474a; color: #FFFFFF;border-radius: 4px"></span>
+
+
+                                <span class="text-white"><small th:text="${news.date}"></small></span>
+                            </div>
+
+
+                            <h2 class="m-0 text-white  font-weight-bold" th:text="${news.title}" style="font-family: 'Roboto Slab', serif; font-size: 20px; line-height: 25px; text-align: start; letter-spacing: normal;"></h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-5 px-0">
+            <div class="row mx-0">
+
+                <div th:each="news, iterStat : ${newsList}" class="col-md-6 px-0"
+                     th:if="${iterStat.index} >= ${newsList.size() - 4}">
+                    <div class="position-relative overflow-hidden" style="height: 250px;">
+                        <a th:href="@{/news/{id}(id=${news.id})}">
+                            <img class="img-fluid w-100 h-100" th:src="@{'img/' + ${news.imageUrl}}"
+                                 style="object-fit: cover;">
+                            <div class="overlay">
+                                <div class="mb-2">
+                                   <span class="badge badge-primary  font-weight-semi-bold p-2 mr-2"
+                                         th:text="${news.getCategory().getName()}"
+                                         style="background-color: #ab474a; color: #FFFFFF;border-radius: 4px"></span>
+
+                                    <span class="text-white"><small th:text="${news.date}"></small></span>
+                                </div>
+
+                                <h6 class="m-0 text-white  font-weight-semi-bold" th:text="${news.title}" style="font-family: 'Roboto Slab', serif; font-size: 14px; line-height: 24px; text-align: start; letter-spacing: normal;"></h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured News Slider Start -->
+<div class="container-fluid pt-5 mb-3">
+    <div class="container">
+
+
+        <div  class="section-title" style="border: none;background-color: #EFEFEF">
+            <h4 class="m-0  font-weight-bold" style="background: linear-gradient(90deg, #000000 20%, #ab474a 70%); -webkit-background-clip: text; color: transparent;">Öne Çıkanlar</h4>
+        </div>
+
+
+
+
+        <div class="owl-carousel news-carousel carousel-item-4 position-relative">
+            <!-- Sadece öne çıkan haberleri bir kez gösterme -->
+
+
+
+            <th:block th:each="news : ${featuredNewsList}">
+                <div class="position-relative overflow-hidden" style="height: 300px;">
+                    <a th:href="@{/news/{id}(id=${news.id})}">
+                        <img class="img-fluid h-100" th:src="@{'/img/' + ${news.imageUrl}}" style="object-fit: contain; max-height: 100%; max-width: 100%;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <span class="badge badge-primary font-weight-semi-bold p-2 mr-2"
+                                      th:text="${news.getCategory().getName()}"
+                                      style="background-color: #983538; color: #FFFFFF;border-radius: 4px"></span>
+                                <span class="text-white"><small th:text="${news.date}"></small></span>
+                            </div>
+                            <h6 class="m-0 text-white  font-weight-semi-bold" th:text="${news.title}"></h6>
+                        </div>
+                    </a>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</div>
+<!-- Featured News Slider End -->
+
+
+    <!-- News With Sidebar Start -->
+    <div  class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+
+                        <th:block th:each="news : ${newsList}">
+                            <div class="col-lg-6">
+                                <div class="position-relative mb-3">
+
+
+<!--                                    <img th:src="${'data:image/jpeg;base64,' + news.imageUrl}" alt="Makale Resmi" >-->
+
+                                    <img  class="img-fluid w-100" th:src="${'data:image/jpeg;base64,' + news.imageUrl}" style="object-fit: cover;border-radius:5px;box-shadow: none ">
+
+
+
+
+                                    <div style="background-color: #EFEFEF; border: none" class="border-top-0 p-4">
+                                        <div class="mb-2">
+                                            <a th:href="@{/categories/{categoryName}/(categoryName=${news.category.name})}"
+                                               class="badge  font-weight-semi-bold p-2 mr-2"
+                                               style="background-color: #983538; color: #FFFFFF; text-decoration: none; cursor: pointer;border-radius:5px">
+                                                <span  th:text="${news.getCategory().getName()}"></span>
+                                            </a>
+                                            <small th:text="${news.date}"></small>
+                                        </div>
+                                        <a class="h4 d-block mb-3 text-secondary font-weight-bold"
+                                           style="font-family: 'Roboto Slab', serif; font-size: 14px; line-height: 24px; text-align: start; letter-spacing: normal;"
+                                           th:text="${news.title}"
+                                           th:href="@{/news/{id}(id=${news.id})}">
+                                        </a>
+                                        <div class="d-flex align-items-center mt-2">
+
+                                            <img class="rounded-circle mr-2" th:src="${'data:image/jpeg;base64,' + news.author.authorImage}" width="25" height="25" alt="" />
+
+                                            <div>
+                                                <a th:href="@{/yazarlar/{id}(id=${news.author.id})}"
+                                                   th:text="${news.author.name}"
+                                                   class="text-muted"
+                                                   style="font-family: 'Roboto Slab', serif; font-size: 19px; line-height: 29px; text-align: start; letter-spacing: normal;color: #0d0d0f">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </th:block>
+                        <!-- Thymeleaf döngüsü sonu -->
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+
+
+                    <style>
+                        .custom-section-title {
+                            background-color: #ab474a;
+                            padding: 5px;
+                            border-left: none; /* border-left'u kaldırmak için bu satırı ekledik */
+
+                        }
+
+                        .custom-section-title h4 {
+                            font-size: 12px; /* Metin boyutunu küçülttük */
+                            color: white;
+                            margin: 0; /* Kenar boşlukları sıfırladık */
+                            padding: 5px 0; /* İç boşluğu ayarladık */
+                        }
+                    </style>
+
+
+
+                    <!-- Tags Start -->
+                    <div class="mb-3">
+                        <div class="section-title mb-0 custom-section-title">
+                            <h4 class="m-0  font-weight-bold">Kategoriler</h4>
+                        </div>
+
+                        <div style="border: none;background-color: #EFEFEF" class=" border-top-0 p-3">
+                            <div class="d-flex flex-column m-n1">
+                                <div th:each="category : ${categories}" class="d-flex align-items-center m-1">
+                                    <i class="fas fa-folder-open mr-2"></i>
+                                    <a th:href="@{/categories/{categoryName}(categoryName=${category.name})}" class="btn btn-sm btn-outline-secondary" th:text="${category.name}"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tags End -->
+
+
+
+
+
+<!--&lt;!&ndash;                    twitter start&ndash;&gt;-->
+<!--                    <div class="mb-3">-->
+<!--                        <div class="section-title mb-0" style="background-color: #1DA1F2; padding: 10px; border-radius: 5px; border-left: none;">-->
+<!--                            <h4 class="m-0 text-uppercase font-weight-bold" style="color: white; font-size: 14px;">Twitter</h4>-->
+<!--                        </div>-->
+
+
+
+
+<!--                        <div class="bg-white text-center border border-top-0 p-3">-->
+<!--                            <blockquote class="twitter-tweet">-->
+<!--                                <p th:utext="${latestTweet}"></p>-->
+<!--                            </blockquote>-->
+<!--                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; twitter End &ndash;&gt;-->
+
+
+                    <!-- Popular News Start -->
+                    <div class="mb-3">
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- News With Sidebar End -->
+
+
+    <!--        start footer-->
+    <div th:insert="~{fragments/footer::footer}"></div>
+
+
+    <!--        end footer-->
+
+
+    <!-- Back to Top -->
+<a style="background-color: #0d0d0f; color: #f0f0f0; box-shadow: none; border: none; border-radius: 0px;" href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

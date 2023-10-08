@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Add your head content here -->
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<!-- Admin Add Category Start -->
+<div class="container mt-5">
+  <h2>Add Category</h2>
+  <form th:action="@{/admin/save-category}" method="post">
+    <div class="form-group">
+      <label for="name">Category Name:</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Category</button>
+  </form>
+</div>
+<!-- Admin Add Category End -->
+</body>
+</html>

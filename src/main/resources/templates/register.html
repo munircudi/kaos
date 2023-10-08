@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kaos Aralığı</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Free HTML Templates" name="keywords">
+  <meta content="Free HTML Templates" name="description">
+
+  <!-- Favicon -->
+  <link href="/img/rrizom.jpg" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+
+
+    body {
+      font-family: 'Poppins-Regular', sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: start;
+      letter-spacing: normal;
+      background-color: #ffffff;
+      color: #212529;
+    }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px 0px;
+    }
+    </style>
+  </style>
+
+
+</head>
+
+<body>
+
+<!--navbar start-->
+<div th:replace="~{fragments/topbar::navbar}"></div>
+<!-- Navbar End -->
+
+
+
+<!-- Register Page Start -->
+<div class="container-fluid p-0" style="height: calc(100vh - 56px); background-image: url('https://example.com/path/to/background-image.jpg'); background-size: cover;">
+  <div class="row justify-content-center align-items-center h-100">
+    <div class="col-md-6 col-lg-4">
+      <div class="card bg-light">
+
+
+        <div class="card-body" >
+          <h5 class="card-title text-center mb-4">Kayıt Ol</h5>
+          <form th:action="@{/users/addNew}" th:object="${user}" method="post">
+            <div class="form-group">
+              <input  required style="box-shadow: none; border: none" type="text" class="form-control" id="firstname" name="firstname" placeholder="Ad">
+            </div>
+
+            <div class="form-group">
+              <input required style="box-shadow: none; border: none" type="text" class="form-control" id="lastname" name="lastname" placeholder="Soyad">
+            </div>
+
+            <div class="form-group">
+              <input required style="box-shadow: none; border: none" type="text" class="form-control" id="username" name="username" placeholder="Kullanıcı adı">
+            </div>
+
+            <div class="form-group">
+              <input required style="box-shadow: none; border: none" type="password" class="form-control" id="password" name="password" placeholder="Şifre">
+            </div>
+
+
+            <button type="submit" class="btn  btn-block" style="background-color: #726969; color: #f0f0f0; box-shadow: 0px 0px 5px 0px #ffffff;border: none;border-radius: 6px">Kayıt Ol</button>
+          </form>
+
+          <p class="mt-3 text-center">Hesabın var mı? <a  style="color: #AB474A" href="/potentiaagendicon7272">O zaman giriş yap pismam</a>.</p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Register Page End -->
+
+
+
+<!-- Contact End -->
+
+<!--        start footer-->
+<div th:insert="~{fragments/footer::footer}"></div>
+
+<!--        end footer-->
+
+<!-- Back to Top -->
+<a style="background-color: #0d0d0f; color: #f0f0f0; box-shadow: none; border: none; border-radius: 0px;" href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+</body>
+
+</html>

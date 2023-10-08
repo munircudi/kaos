@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="table-tweet-data-changelog-v1.0.xml" author="huseyin-balicak">
+
+        <insert tableName="tweet">
+            <column name="tweet_html" value="&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;tr&quot; dir=&quot;ltr&quot;&gt;Çeviri:&lt;br&gt;Sivil Savunma Güçleri (HPC) Komutanlarıyla Kuzey ve Doğu Suriye&#39;deki Toplum Polisliği Üzerine&lt;a href=&quot;https://t.co/fvqAQ38X1z&quot;&gt;https://t.co/fvqAQ38X1z&lt;/a&gt; &lt;a href=&quot;https://t.co/saNR0tw1v2&quot;&gt;pic.twitter.com/saNR0tw1v2&lt;/a&gt;&lt;/p&gt;&amp;mdash; #BiosEthosPoliticos (@BiosEthos) &lt;a href=&quot;https://twitter.com/BiosEthos/status/1277217684606914561?ref_src=twsrc%5Etfw&quot;&gt;June 28, 2020&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;"/>
+        </insert>
+
+        <insert tableName="tweet">
+            <column name="tweet_html" value='&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="tr" dir="ltr"&gt;Merhaba! Bir yılı aşkın bir süredir gönüllülük esasıyla çalışan &lt;a href="https://twitter.com/hashtag/BiosEthosPoliticos?src=hash&amp;ref_src=twsrc%5Etfw"&gt;#BiosEthosPoliticos&lt;/a&gt; çeviri ve makalelerle yoluna devam etmeye çalışıyor. Tek çıkarı okuyucularının desteği olan oluşumumuzun Twitter hesabını (&lt;a href="https://twitter.com/BiosEthos?ref_src=twsrc%5Etfw"&gt;@BiosEthos&lt;/a&gt;) tavsiye edebilir, çeviri ve makalelerimizi paylaşabilirsiniz. &lt;a href="https://t.co/r09rqNdE5O"&gt;pic.twitter.com/r09rqNdE5O&lt;/a&gt;&lt;/p&gt;&amp;mdash; #BiosEthosPoliticos (@BiosEthos) &lt;a href="https://twitter.com/BiosEthos/status/1438541162739011585?ref_src=twsrc%5Etfw"&gt;September 16, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;'/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

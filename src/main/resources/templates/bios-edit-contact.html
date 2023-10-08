@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Head kısmı -->
+</head>
+<body>
+<h1>Edit Contact</h1>
+<form th:action="@{/contacts/{id}/edit(id=${contact.id})}" th:object="${contact}" method="post">
+  <div>
+    <label for="about">About:</label>
+    <input type="text" id="about" th:field="*{about}">
+  </div>
+  <div>
+    <label for="biosEthosEmail">Bios Ethos Email:</label>
+    <input type="text" id="biosEthosEmail" th:field="*{biosEthosEmail}">
+  </div>
+  <button type="submit">Edit</button>
+</form>
+</body>
+</html>

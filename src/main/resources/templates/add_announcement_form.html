@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Duyuru Ekle</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <script src="https://cdn.tiny.cloud/1/yrqf6xoford37bx0rhmoziqv7a079cddjuxdivdvy7jwu9hp/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+  <!-- Diğer gerekli başlık etiketleri -->
+</head>
+<body>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="h3">Duyuru Ekle</h1>
+        </div>
+        <div class="card-body">
+          <form action="/addAnnouncement" method="post" th:object="${anno}">
+            <div class="form-group">
+              <label for="title">Başlık</label>
+              <input type="text" id="title" name="title" class="form-control" placeholder="Başlık" th:field="*{title}" required>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-9">
+                <textarea th:field="*{content}" style="width:100%; height:600px"></textarea>
+                <script>
+                  tinymce.init({
+                    selector: '#content',
+                    plugins: 'link lists media code',
+                    toolbar: 'alignleft aligncenter alignright alignjustify | formatselect | bullist numlist | outdent indent | link code',
+                    toolbar_mode: 'floating',
+
+                    // Metin yapıştırma özelleştirmesi
+                    paste_preprocess: function(plugin, args) {
+                      // Metin yapıştırıldığında içeriğin biçimini koruyun
+                      args.content = args.content.replace(/<font[^>]*>|<\/font>/g, "");
+                    }
+                  });
+                </script>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <button type="submit" class="btn btn-primary">Duyuru Ekle</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  tinymce.init({
+    selector: 'textarea#content',
+    plugins: 'lists link image',
+    toolbar: 'undo redo | formatselect | bold italic | bullist numlist | link image',
+    menubar: false,
+    height: 400
+  });
+</script>
+
+<!-- Bootstrap JS ve diğer gereklilikler -->
+</body>
+</html>

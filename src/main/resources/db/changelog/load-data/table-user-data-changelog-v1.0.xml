@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="table-user-data-changelog-v1.0.xml" author="huseyin-balicak" context="test">
+
+        <insert tableName="api_user">
+            <column name="firstname" value="Name 1"/>
+            <column name="lastname" value="Lastname 1"/>
+            <column name="username" value="username1"/>
+            <column name="password" value="$2a$10$41GsPVx4QMCB5O0PgpVFleehHnOPvBs9G4I/1EZWvrnnQbkbB8382
+
+"/>
+        </insert>
+
+        <insert tableName="api_user">
+            <column name="firstname" value="Name 2"/>
+            <column name="lastname" value="Lastname 2"/>
+            <column name="username" value="username2"/>
+            <column name="password" value="$2a$10$41GsPVx4QMCB5O0PgpVFleehHnOPvBs9G4I/1EZWvrnnQbkbB8382
+
+"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

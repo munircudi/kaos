@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Rizom</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Free HTML Templates" name="keywords">
+  <meta content="Free HTML Templates" name="description">
+
+  <!-- Favicon -->
+  <link href="/img/rrizom.jpg" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="/css/style.css" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+
+<!--navbar start-->
+<div th:replace="~{fragments/topbar::navbar}"></div>
+
+<div class="container">
+  <h1>Edit User Page</h1>
+  <hr>
+  <h2>Edit User</h2>
+  <form th:action="@{/users/save}" th:object="${user}" method="post">
+
+    <!-- Add hidden form field to handle update -->
+    <input type="hidden" th:field="*{id}"/>
+
+    <input type="password" placeholder="Password" th:field="*{password}" required="required" class="form-control mb-4 col-4"  minlength="7" maxlength="10">
+
+    <input type="text" placeholder="Firstname" th:field="*{firstname}" class="form-control mb-4 col-4" required minlength="2" maxlength="20">
+
+    <input type="text" placeholder="Lastname" th:field="*{lastname}" class="form-control mb-4 col-4" required minlength="2" maxlength="20">
+
+    <input type="text" placeholder="Username" th:field="*{username}" class="form-control mb-4 col-4" required minlength="2" maxlength="20">
+
+    <div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+
+  </form>
+</div>
+<div th:insert="fragments/footer::footer"></div>
+
+</body>
+</html>

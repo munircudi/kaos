@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Author</title>
+</head>
+<body>
+<h1>Create Author</h1>
+<form action="/create-author" method="post" enctype="multipart/form-data">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  <div>
+    <label for="imageFile">Author Image:</label>
+    <input type="file" id="imageFile" name="imageFile" accept="image/*" required>
+  </div>
+  <button type="submit">Create</button>
+</form>
+</body>
+</html>
+

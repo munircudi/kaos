@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="table-news-data-changelog-v1.0.xml" author="huseyin-balicak">
+
+
+        <insert tableName="news">
+            <column name="date" value="2023-08-10"/>
+            <column name="title" value="Au bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır"/>
+            <column name="content" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut lectus vel ligula gravida bibendum. Suspendisse potenti. Vestibulum at cursus justo. Sed at neque id elit facilisis faucibus. Vestibulum non cursus eros, eu cursus odio. Nulla facilisi. Morbi volutpat, quam eu efficitur tempus, ex lorem eleifend nunc, eget bibendum odio justo in ex. Maecenas ac nulla quam. Integer commodo, libero quis dignissim tempus, ante tortor placerat quam, ac facilisis dolor elit nec ligula.
+
+Fusce auctor risus at est condimentum, a dictum risus eleifend. Sed ultrices ut justo id posuere. Pellentesque vehicula, velit eu sodales aliquam, tortor turpis convallis nulla, ut venenatis eros massa in orci. Etiam in urna et eros bibendum varius in non odio. Nam iaculis neque ac erat luctus volutpat. Aliquam sit amet lectus sed turpis lacinia aliquam. Sed vel lectus arcu. Sed volutpat nulla eu arcu convallis, ac facilisis tellus tristique. Proin varius massa non bibendum ullamcorper.
+
+Donec id cursus justo. Curabitur pellentesque purus et mi feugiat, nec mattis ligula facilisis. Aenean sagittis nunc non suscipit commodo. Ut non vestibulum arcu. Vivamus nec sollicitudin sapien. Integer id luctus tortor, at efficitur sapien. Duis dignissim, lectus a hendrerit vehicula, nulla nisi tristique lorem, nec iaculis turpis nulla nec purus. Vivamus tincidunt bibendum velit, in auctor turpis mattis nec.
+"/>
+            <column name="featured" value="true"/>
+            <column name="image_url" value="https://example.com/image1.jpg"/>
+            <column name="category_id" value="1"/>
+            <column name="author_id" value="1"/>
+        </insert>
+
+        <insert tableName="news">
+            <column name="date" value="2023-08-10"/>
+            <column name="title" value="Xu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır"/>
+            <column name="content" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut lectus vel ligula gravida bibendum. Suspendisse potenti. Vestibulum at cursus justo. Sed at neque id elit facilisis faucibus. Vestibulum non cursus eros, eu cursus odio. Nulla facilisi. Morbi volutpat, quam eu efficitur tempus, ex lorem eleifend nunc, eget bibendum odio justo in ex. Maecenas ac nulla quam. Integer commodo, libero quis dignissim tempus, ante tortor placerat quam, ac facilisis dolor elit nec ligula.
+
+Fusce auctor risus at est condimentum, a dictum risus eleifend. Sed ultrices ut justo id posuere. Pellentesque vehicula, velit eu sodales aliquam, tortor turpis convallis nulla, ut venenatis eros massa in orci. Etiam in urna et eros bibendum varius in non odio. Nam iaculis neque ac erat luctus volutpat. Aliquam sit amet lectus sed turpis lacinia aliquam. Sed vel lectus arcu. Sed volutpat nulla eu arcu convallis, ac facilisis tellus tristique. Proin varius massa non bibendum ullamcorper.
+
+Donec id cursus justo. Curabitur pellentesque purus et mi feugiat, nec mattis ligula facilisis. Aenean sagittis nunc non suscipit commodo. Ut non vestibulum arcu. Vivamus nec sollicitudin sapien. Integer id luctus tortor, at efficitur sapien. Duis dignissim, lectus a hendrerit vehicula, nulla nisi tristique lorem, nec iaculis turpis nulla nec purus. Vivamus tincidunt bibendum velit, in auctor turpis mattis nec.
+"/>
+            <column name="featured" value="true"/>
+            <column name="image_url" value="https://example.com/image1.jpg"/>
+            <column name="category_id" value="1"/>
+            <column name="author_id" value="1"/>
+        </insert>
+
+        <insert tableName="news">
+            <column name="date" value="2023-09-10"/>
+            <column name="title" value="XUu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır"/>
+            <column name="content" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut lectus vel ligula gravida bibendum. Suspendisse potenti. Vestibulum at cursus justo. Sed at neque id elit facilisis faucibus. Vestibulum non cursus eros, eu cursus odio. Nulla facilisi. Morbi volutpat, quam eu efficitur tempus, ex lorem eleifend nunc, eget bibendum odio justo in ex. Maecenas ac nulla quam. Integer commodo, libero quis dignissim tempus, ante tortor placerat quam, ac facilisis dolor elit nec ligula.
+
+Fusce auctor risus at est condimentum, a dictum risus eleifend. Sed ultrices ut justo id posuere. Pellentesque vehicula, velit eu sodales aliquam, tortor turpis convallis nulla, ut venenatis eros massa in orci. Etiam in urna et eros bibendum varius in non odio. Nam iaculis neque ac erat luctus volutpat. Aliquam sit amet lectus sed turpis lacinia aliquam. Sed vel lectus arcu. Sed volutpat nulla eu arcu convallis, ac facilisis tellus tristique. Proin varius massa non bibendum ullamcorper.
+
+Donec id cursus justo. Curabitur pellentesque purus et mi feugiat, nec mattis ligula facilisis. Aenean sagittis nunc non suscipit commodo. Ut non vestibulum arcu. Vivamus nec sollicitudin sapien. Integer id luctus tortor, at efficitur sapien. Duis dignissim, lectus a hendrerit vehicula, nulla nisi tristique lorem, nec iaculis turpis nulla nec purus. Vivamus tincidunt bibendum velit, in auctor turpis mattis nec.
+"/>
+            <column name="featured" value="true"/>
+            <column name="image_url" value="https://example.com/image1.jpg"/>
+            <column name="category_id" value="1"/>
+            <column name="author_id" value="1"/>
+        </insert>
+
+        <insert tableName="news">
+            <column name="date" value="2023-10-10"/>
+            <column name="title" value="Bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır"/>
+            <column name="content" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut lectus vel ligula gravida bibendum. Suspendisse potenti. Vestibulum at cursus justo. Sed at neque id elit facilisis faucibus. Vestibulum non cursus eros, eu cursus odio. Nulla facilisi. Morbi volutpat, quam eu efficitur tempus, ex lorem eleifend nunc, eget bibendum odio justo in ex. Maecenas ac nulla quam. Integer commodo, libero quis dignissim tempus, ante tortor placerat quam, ac facilisis dolor elit nec ligula.
+
+Fusce auctor risus at est condimentum, a dictum risus eleifend. Sed ultrices ut justo id posuere. Pellentesque vehicula, velit eu sodales aliquam, tortor turpis convallis nulla, ut venenatis eros massa in orci. Etiam in urna et eros bibendum varius in non odio. Nam iaculis neque ac erat luctus volutpat. Aliquam sit amet lectus sed turpis lacinia aliquam. Sed vel lectus arcu. Sed volutpat nulla eu arcu convallis, ac facilisis tellus tristique. Proin varius massa non bibendum ullamcorper.
+
+Donec id cursus justo. Curabitur pellentesque purus et mi feugiat, nec mattis ligula facilisis. Aenean sagittis nunc non suscipit commodo. Ut non vestibulum arcu. Vivamus nec sollicitudin sapien. Integer id luctus tortor, at efficitur sapien. Duis dignissim, lectus a hendrerit vehicula, nulla nisi tristique lorem, nec iaculis turpis nulla nec purus. Vivamus tincidunt bibendum velit, in auctor turpis mattis nec.
+"/>
+            <column name="featured" value="true"/>
+            <column name="image_url" value="https://example.com/image1.jpg"/>
+            <column name="category_id" value="1"/>
+            <column name="author_id" value="1"/>
+        </insert>
+
+        <insert tableName="news">
+            <column name="date" value="2023-11-10"/>
+            <column name="title" value="Bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır"/>
+            <column name="content" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut lectus vel ligula gravida bibendum. Suspendisse potenti. Vestibulum at cursus justo. Sed at neque id elit facilisis faucibus. Vestibulum non cursus eros, eu cursus odio. Nulla facilisi. Morbi volutpat, quam eu efficitur tempus, ex lorem eleifend nunc, eget bibendum odio justo in ex. Maecenas ac nulla quam. Integer commodo, libero quis dignissim tempus, ante tortor placerat quam, ac facilisis dolor elit nec ligula.
+
+Fusce auctor risus at est condimentum, a dictum risus eleifend. Sed ultrices ut justo id posuere. Pellentesque vehicula, velit eu sodales aliquam, tortor turpis convallis nulla, ut venenatis eros massa in orci. Etiam in urna et eros bibendum varius in non odio. Nam iaculis neque ac erat luctus volutpat. Aliquam sit amet lectus sed turpis lacinia aliquam. Sed vel lectus arcu. Sed volutpat nulla eu arcu convallis, ac facilisis tellus tristique. Proin varius massa non bibendum ullamcorper.
+
+Donec id cursus justo. Curabitur pellentesque purus et mi feugiat, nec mattis ligula facilisis. Aenean sagittis nunc non suscipit commodo. Ut non vestibulum arcu. Vivamus nec sollicitudin sapien. Integer id luctus tortor, at efficitur sapien. Duis dignissim, lectus a hendrerit vehicula, nulla nisi tristique lorem, nec iaculis turpis nulla nec purus. Vivamus tincidunt bibendum velit, in auctor turpis mattis nec.
+"/>
+            <column name="featured" value="true"/>
+            <column name="image_url" value="https://example.com/image1.jpg"/>
+            <column name="category_id" value="2"/>
+            <column name="author_id" value="4"/>
+        </insert>
+
+        <insert tableName="news">
+            <column name="date" value="2023-12-12"/>
+            <column name="title" value="Bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır"/>
+            <column name="content" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut lectus vel ligula gravida bibendum. Suspendisse potenti. Vestibulum at cursus justo. Sed at neque id elit facilisis faucibus. Vestibulum non cursus eros, eu cursus odio. Nulla facilisi. Morbi volutpat, quam eu efficitur tempus, ex lorem eleifend nunc, eget bibendum odio justo in ex. Maecenas ac nulla quam. Integer commodo, libero quis dignissim tempus, ante tortor placerat quam, ac facilisis dolor elit nec ligula.
+
+Fusce auctor risus at est condimentum, a dictum risus eleifend. Sed ultrices ut justo id posuere. Pellentesque vehicula, velit eu sodales aliquam, tortor turpis convallis nulla, ut venenatis eros massa in orci. Etiam in urna et eros bibendum varius in non odio. Nam iaculis neque ac erat luctus volutpat. Aliquam sit amet lectus sed turpis lacinia aliquam. Sed vel lectus arcu. Sed volutpat nulla eu arcu convallis, ac facilisis tellus tristique. Proin varius massa non bibendum ullamcorper.
+
+Donec id cursus justo. Curabitur pellentesque purus et mi feugiat, nec mattis ligula facilisis. Aenean sagittis nunc non suscipit commodo. Ut non vestibulum arcu. Vivamus nec sollicitudin sapien. Integer id luctus tortor, at efficitur sapien. Duis dignissim, lectus a hendrerit vehicula, nulla nisi tristique lorem, nec iaculis turpis nulla nec purus. Vivamus tincidunt bibendum velit, in auctor turpis mattis nec.
+"/>
+            <column name="featured" value="true"/>
+            <column name="image_url" value="https://example.com/image1.jpg"/>
+            <column name="category_id" value="3"/>
+            <column name="author_id" value="2"/>
+        </insert>
+
+        <insert tableName="news">
+            <column name="date" value="2023-11-11"/>
+            <column name="title" value="Bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır bu bir başlıktır"/>
+            <column name="content" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut lectus vel ligula gravida bibendum. Suspendisse potenti. Vestibulum at cursus justo. Sed at neque id elit facilisis faucibus. Vestibulum non cursus eros, eu cursus odio. Nulla facilisi. Morbi volutpat, quam eu efficitur tempus, ex lorem eleifend nunc, eget bibendum odio justo in ex. Maecenas ac nulla quam. Integer commodo, libero quis dignissim tempus, ante tortor placerat quam, ac facilisis dolor elit nec ligula.
+
+Fusce auctor risus at est condimentum, a dictum risus eleifend. Sed ultrices ut justo id posuere. Pellentesque vehicula, velit eu sodales aliquam, tortor turpis convallis nulla, ut venenatis eros massa in orci. Etiam in urna et eros bibendum varius in non odio. Nam iaculis neque ac erat luctus volutpat. Aliquam sit amet lectus sed turpis lacinia aliquam. Sed vel lectus arcu. Sed volutpat nulla eu arcu convallis, ac facilisis tellus tristique. Proin varius massa non bibendum ullamcorper.
+
+Donec id cursus justo. Curabitur pellentesque purus et mi feugiat, nec mattis ligula facilisis. Aenean sagittis nunc non suscipit commodo. Ut non vestibulum arcu. Vivamus nec sollicitudin sapien. Integer id luctus tortor, at efficitur sapien. Duis dignissim, lectus a hendrerit vehicula, nulla nisi tristique lorem, nec iaculis turpis nulla nec purus. Vivamus tincidunt bibendum velit, in auctor turpis mattis nec.
+"/>
+            <column name="featured" value="true"/>
+            <column name="image_url" value="https://example.com/image1.jpg"/>
+            <column name="category_id" value="2"/>
+            <column name="author_id" value="3"/>
+        </insert>
+
+
+
+    </changeSet>
+
+</databaseChangeLog>

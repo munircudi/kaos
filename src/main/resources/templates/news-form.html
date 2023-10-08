@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Bootstrap Admin Template : Binary Admin</title>
+  <!-- BOOTSTRAP STYLES-->
+  <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+  <!-- FONTAWESOME STYLES-->
+  <link href="assets/css/font-awesome.css" rel="stylesheet"/>
+  <!-- MORRIS CHART STYLES-->
+  <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet"/>
+  <!-- CUSTOM STYLES-->
+  <link href="assets/css/custom.css" rel="stylesheet"/>
+  <!-- GOOGLE FONTS-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.tiny.cloud/1/yrqf6xoford37bx0rhmoziqv7a079cddjuxdivdvy7jwu9hp/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Form container artık container sınıfını kullanıyor */
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Sayfanın genişliği kadar büyüyor */
+            max-width: 800px; /* Maksimum genişlik sınırı ayarlayabilirsiniz */
+            margin: 20px; /* Kenar boşluğunu ayarlayabilirsiniz */
+        }
+
+        .form-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 4px;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Genişlik Ayarları */
+        select.form-control,
+        input.form-control {
+            width: 100%;
+        }
+
+        /* Resim Önizleme Genişliği */
+        #imagePreview {
+            max-width: 100%; /* Resmi container'a sığacak şekilde ayarlar */
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!-- Sayfanın genişliği Bootstrap "container" sınıfı ile sınırlanıyor -->
+<div class="container">
+
+
+
+
+
+
+
+
+
+    <div class="row justify-content-center">
+
+
+        <div class="col-lg-8">
+            <div class="form-container">
+                <h2>Yazı Oluştur</h2>
+                <form th:action="@{/news/create}" method="post" th:object="${news}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <select class="form-control" th:field="*{category}" required>
+                            <option th:each="category : ${categories}" th:value="${category.id}"
+                                    th:text="${category.name}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control" th:field="*{author}" required>
+                            <option th:each="author : ${authors}" th:value="${author.id}"
+                                    th:text="${author.name}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" th:field="*{title}" placeholder="Title"/>
+                    </div>
+
+                    <div>
+                        <label for="imageFile">Yazı Resmi:</label>
+                        <input type="file" id="imageFile" name="imageFile" accept="image/*" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <textarea th:field="*{content}" style="width:800px; height:1200px"></textarea>
+
+                            <script>
+                                tinymce.init({
+                                    selector: '#content',
+                                    plugins: 'link lists media code',
+                                    toolbar: 'alignleft aligncenter alignright alignjustify | formatselect | bullist numlist | outdent indent | link code',
+                                    toolbar_mode: 'floating',
+
+                                    // Metin yapıştırma özelleştirmesi
+                                    paste_preprocess: function (plugin, args) {
+                                        // Metin yapıştırıldığında içeriğin biçimini koruyun
+                                        args.content = args.content.replace(/<font[^>]*>|<\/font>/g, "");
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Date:</label>
+                        <input type="date" class="form-control" th:field="*{date}" required/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="featured">Öne çıksın:</label>
+                        <input type="checkbox" class="form-check-input" th:field="*{featured}" id="featured"/>
+                    </div>
+
+                    <div class="form-group">
+                        <img id="imagePreview" src="#" alt="Preview">
+                    </div>
+
+                    <button type="submit">Oluştur</button>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+<!-- Bootstrap JS (optional) -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const imageInput = document.getElementById('image');
+    const imagePreview = document.getElementById('imagePreview');
+
+    imageInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            imagePreview.style.display = 'none';
+        }
+    });
+
+</script>
+
+
+</body>
+
+</html>

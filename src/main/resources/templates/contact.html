@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kaos Aralığı</title>    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="/img/rrizom.jpg" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <style>
+        .icon-text {
+            display: flex;
+            align-items: center;
+        }
+        .icon-text i {
+            font-size: 18px;
+            color: #06060a;
+        }
+        .email-link {
+            color: #06060a;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+
+        /* Varsayılan düğme rengi */
+        .btn-custom {
+            background-color: #ab474a; /* Mavi renk */
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!--navbar start-->
+<div th:replace="~{fragments/topbar::navbar}"></div>
+<!-- Navbar End -->
+
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid mt-5 pt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+<!--                    <div class="section-title mb-0">-->
+<!--                        <h4 class="m-0 text-uppercase font-weight-bold">Contact Us For Any Queries</h4>-->
+<!--                    </div>-->
+
+<!--                    start-->
+
+                    <div class="bg-white border border-top-0 p-4 mb-3">
+                        <div class="mb-4">
+                            <h6 class="text-uppercase font-weight-bold">Hakkımızda</h6>
+                            <p class="mb-4" th:text="${bios.about}"></p>
+                            <div class="mb-3">
+                                <div class="icon-text mb-2">
+                                    <i class="fa fa-envelope mr-2"></i>
+                                    <h6 class="font-weight-bold mb-0">Email adresimiz</h6>
+                                </div>
+                                <p class="m-0">
+                                    <a th:href="'mailto:' + ${bios.biosEthosEmail}" class="email-link" th:text="${bios.biosEthosEmail}"></a>
+                                </p>
+                            </div>
+                        </div>
+                        <h6 class="text-uppercase font-weight-bold mb-3">Bizimle İletişime Geçin</h6>
+
+
+                        <form th:action="@{/contact}" th:object="${contactUs}" method="post">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input  style="box-shadow: none" type="text" class="form-control p-4" placeholder="İsminiz"
+                                               required="required"
+                                               th:field="*{name}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input style="box-shadow: none" type="email" class="form-control p-4" placeholder="Mailiniz"
+                                               required="required"
+                                               th:field="*{email}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input style="box-shadow: none" type="text" class="form-control p-4" placeholder="Konu" required="required"
+                                       th:field="*{subject}">
+                            </div>
+                            <div class="form-group">
+                            <textarea style="box-shadow: 0px 0px 5px 0px #ffffff;outline: none; " class="form-control" rows="4" placeholder="Mesaj" required="required"
+                                      th:field="*{message}"></textarea>
+                            </div>
+
+
+                            <div>
+                                <button id="colorChangeButton" class="btn btn-custom font-weight-semi-bold px-4"  style="background-color: #726969; color: #f0f0f0; box-shadow: 0px 0px 5px 0px #ffffff;border: none;border-radius: 6px" type="submit">Mesaj Gönder</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <!--        start footer-->
+<div th:insert="~{fragments/footer::footer}"></div>
+
+    <!--        end footer-->
+
+
+    <!-- Back to Top -->
+<a style="background-color: #0d0d0f; color: #f0f0f0; box-shadow: none; border: none; border-radius: 0px;" href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

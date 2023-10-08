@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Kaos Aralığı</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Free HTML Templates" name="keywords">
+  <meta content="Free HTML Templates" name="description">
+
+  <!-- Favicon -->
+  <link href="/img/rrizom.jpg" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="/css/style.css" rel="stylesheet">
+
+  <style>
+
+    .container.mt-5 {
+      margin-bottom: 320px; /* İhtiyaca göre ayarlayabilirsiniz */
+    }
+
+
+    .list-group-item::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: #ccc; /* Çizgi rengi */
+      margin-top: 10px; /* İstenilen boşluğu ayarlayın */
+      margin-bottom: 10px; /* İstenilen boşluğu ayarlayın */
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!--navbar start-->
+<div th:replace="~{fragments/topbar::navbar}"></div>
+<!-- Navbar End -->
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8" style="color: #0d0d0f">
+      <h1 class="mb-4" style="color: #6A6C64; font-family: 'Roboto Slab', sans-serif; font-size: 19px; line-height: 30px;">Duyurular</h1>
+      <ul style="background-color: #EFEFEF; border: none" class="list-group">
+        <li style="background-color: #EFEFEF; border: none" th:each="announcement : ${announcements}" class="list-group-item">
+          <div>
+            <a th:href="@{/duyurular/{id}(id=${announcement.id})}" th:text="${announcement.title}" style="color: black; font-family: 'Roboto Slab', sans-serif; font-size: 22px; line-height: 33px; text-decoration: none;" onmouseover="this.style.color='#ab474a';" onmouseout="this.style.color='black';"></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- Contact End -->
+
+<!--        start footer-->
+<div th:insert="~{fragments/footer::footer}"></div>
+
+<!--        end footer-->
+
+<!-- Back to Top -->
+<a style="background-color: #0d0d0f; color: #f0f0f0; box-shadow: none; border: none; border-radius: 0px;" href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="/lib/easing/easing.min.js"></script>
+<script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="/js/main.js"></script>
+</body>
+
+</html>

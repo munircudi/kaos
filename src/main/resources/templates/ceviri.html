@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kaos Aralığı</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Free HTML Templates" name="keywords">
+  <meta content="Free HTML Templates" name="description">
+
+  <!-- Favicon -->
+  <link href="/img/rrizom.jpg" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="/css/style.css" rel="stylesheet">
+
+  <style>
+    .col-12 .section-title {
+      background-color: #ab474a; /* Arka plan rengi */
+      border: 1px solid #ccc; /* Kenarlık stilini ve rengini ayarlayabilirsiniz */
+      padding: 10px; /* İsteğe bağlı iç boşluk */
+    }
+
+    .col-12 .section-title h4 {
+      color: #ffffff; /* Kategori adı metin rengi */
+    }
+
+    .col-12 .section-title a {
+      color: #666; /* Link metin rengi */
+    }
+
+    .container-fluid .mt-5 pt-3 {
+      margin-bottom: 330px; /* İhtiyaca göre ayarlayabilirsiniz */
+    }
+
+
+
+  </style>
+
+
+</head>
+
+<body>
+<!--navbar start-->
+<div th:replace="~{fragments/topbar::navbar}"></div>
+<!-- Navbar End -->
+
+<div class="container mt-3">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8">
+
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title">
+
+              <h4 class="m-0 font-weight-bold">Çeviri</h4>
+
+              <!--              <h4 class="m-0 text-uppercase font-weight-bold" th:text="${category.name}"></h4>-->
+<!--              <a class="text-secondary font-weight-medium text-decoration-none"-->
+<!--                 th:href="@{/categories/{categoryName}/(categoryName=${category.name})}"></a>-->
+
+<!--              <a class="text-secondary font-weight-medium text-decoration-none" th:text="Çeviri" th:href="@{/ceviri}"></a>-->
+
+
+            </div>
+          </div>
+          <div class="col-lg-6" th:each="news : ${ceviriNewsList}">
+            <div class="position-relative mb-3">
+
+              <img class="img-fluid w-100" th:src="${'data:image/jpeg;base64,' + news.imageUrl}"
+                   style="object-fit: cover;border-radius:5px;box-shadow: none ">
+
+              <div style="background-color: #EFEFEF;border: none" class="p-4">
+                <div class="mb-2">
+                  <a style="background-color: #983538; color: #FFFFFF; text-decoration: none; cursor: pointer;border-radius:5px"
+                     class="badge  font-weight-semi-bold p-2 mr-2"
+                     th:text="${news.category.name}"
+
+                     th:href="@{/categories/{categoryName}/(categoryName=${news.category.name})}"></a>
+
+                  <small style="color: black" th:text="${news.date}"></small>
+
+                </div>
+                <a style="font-family: 'Roboto Slab',sans-serif;font-size:14px;line-height:24px   "
+                   class="h4 d-block mb-3 text-secondary  font-weight-bold"
+                   th:text="${news.title}" th:href="@{'/news/' + ${news.id}}"></a>
+
+              </div>
+
+              <div style="background-color: #EFEFEF"
+                   class="d-flex justify-content-between  border-top p-4">
+                <div class="d-flex align-items-center">
+
+                  <img class="rounded-circle mr-2"
+                       th:src="${'data:image/jpeg;base64,' + news.author.authorImage}" width="25"
+                       height="25" alt=""/>
+
+
+                  <a th:href="@{/yazarlar/{id}(id=${news.author.id})}"
+                     th:text="${news.author.name}"
+                     class="text-muted"
+                     style="font-family: 'Roboto Slab', serif; font-size: 19px; line-height: 29px; text-align: start; letter-spacing: normal;"></a>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="col-lg-4">
+
+
+        <style>
+          .custom-section-title {
+            background-color: #ab474a;
+            padding: 5px;
+            border-left: none; /* border-left'u kaldırmak için bu satırı ekledik */
+
+          }
+
+          .custom-section-title h4 {
+            font-size: 12px; /* Metin boyutunu küçülttük */
+            color: white;
+            margin: 0; /* Kenar boşlukları sıfırladık */
+            padding: 5px 0; /* İç boşluğu ayarladık */
+            /* Metin rengini beyaz olarak ayarlayalım */
+          }
+        </style>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- News With Sidebar End -->
+
+
+
+<div th:insert="~{fragments/footer::footer}"></div>
+
+
+<a style="background-color: #0d0d0f; color: #f0f0f0; box-shadow: none; border: none; border-radius: 0px;" href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="/lib/easing/easing.min.js"></script>
+<script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="/js/main.js"></script>
+</body>
+
+</html>

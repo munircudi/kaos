@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Detail</title>
+</head>
+<body>
+<h1>Contact Detail</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <td th:text="${contact.id}"></td>
+  </tr>
+  <tr>
+    <th>About</th>
+    <td th:text="${contact.about}"></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td th:text="${contact.biosEthosEmail}"></td>
+  </tr>
+</table>
+</body>
+</html>

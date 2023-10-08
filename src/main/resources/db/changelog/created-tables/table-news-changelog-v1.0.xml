@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="table-news-changelog-v1.0.xml" author="huseyin-balicak">
+        <createTable tableName="news">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="date" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+            <column name="title" type="VARCHAR(900)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="featured" type="BOOLEAN"> <!-- Featured alanı eklendi -->
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_url" type="VARCHAR(90000000)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="category_id" type="LONG">
+                <constraints nullable="false" foreignKeyName="fk_news_to_category_id" references="category(id)"/>
+            </column>
+            <column name="author_id" type="LONG">
+                <constraints nullable="false" foreignKeyName="fk_news_to_author_id" references="author(id)"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>
